@@ -199,7 +199,6 @@ def build_canadian_host_sysroot():
 def build_canadian_host_compiler():
     build_dir = clean_dir(Path('/tmp/moss-build-canadian-host-llvm'))
     stage_dir = clean_dir(Path('/tmp/moss-stage-canadian-host-llvm'))
-    install_dir = clean_dir(Path('/tmp/moss-canadian-host-toolchain'))
 
     isolation_dir = Path('/tmp/moss-host-binaries/bin')
     toolchain_dir = Path('/tmp/moss-host-toolchain/bin')
@@ -235,12 +234,12 @@ def build_canadian_host_compiler():
         cwd=build_dir)
 
 def main():
-    # build_host_compiler()
+    build_host_compiler()
 
     make_canadian_host_isolation()
 
-    # build_canadian_host_headers()
-    # build_canadian_host_sysroot()
+    build_canadian_host_headers()
+    build_canadian_host_sysroot()
 
     build_canadian_host_compiler()
 
